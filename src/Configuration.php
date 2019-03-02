@@ -47,7 +47,7 @@ class Configuration extends DoctrineConfiguration
 	/**
 	 * @var Version[]
 	 */
-	private $dataMigrations;
+	private $dataMigrations = [];
 
 	/**
 	 * @var string
