@@ -1,0 +1,29 @@
+{
+  "name": "chomenko/migrations",
+  "type": "extensions",
+  "description": "Doctrine migrations from Nette Framework",
+  "keywords": ["Migration", "Doctrine", "Nette", "Migrate data"],
+  "homepage": "https://github.com/chomenko/migrations",
+  "license": [],
+  "authors": [
+    {
+      "name": "Mykola Chomenko",
+      "homepage": "http://dipcom.cz",
+      "email": "mykola.chomenko@dipcom.cz"
+    }
+  ],
+  "support": {
+    "email": "mykola.chomenko@dipcom.cz"
+  },
+  "require": {
+    "php": ">=7.1",
+    "doctrine/migrations": "^1.6.2",
+    "nette/di": "^2.4.10",
+    "symfony/console": "^3.3.6 || ^4.0.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Chomenko\\Migrations\\": "src/"
+    }
+  }
+}
