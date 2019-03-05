@@ -40,4 +40,4 @@ migrations:
 
 Commands list. ``php www/index.php list``
 
-![.docs/commands.PNG](.docs/commands.PNG)
+![.docs/commands.PNG](.docs/commands.png)
