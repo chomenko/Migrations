@@ -89,6 +89,7 @@ class MigrationsExtension extends CompilerExtension
 		foreach ($this->defaultCommands as $prefix => $class) {
 			$builder->addDefinition($this->prefix($prefix))
 				->setFactory($class)
+				->addTag(ConsoleExtension::TAG_COMMAND)
 				->setAutowired(FALSE);
 		}
 
