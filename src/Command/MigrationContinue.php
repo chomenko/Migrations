@@ -59,7 +59,7 @@ class MigrationContinue extends AbstractCommand
 		$question    = 'WARNING! You are about to execute a database migration'
 			. ' that could result in schema changes and data loss.'
 			. ' Are you sure you wish to continue? (y/n)';
-		if ($this->canExecute($question, $input, $output)) {
+		if (!$this->canExecute($question, $input, $output)) {
 			return 0;
 		}
 
