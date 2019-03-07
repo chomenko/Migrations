@@ -11,6 +11,7 @@ use Kdyby\Doctrine\Tools\CacheCleaner;
 use Nette\DI\Container;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class MigrationReset extends AbstractCommand
@@ -29,7 +30,13 @@ class MigrationReset extends AbstractCommand
 	protected function configure()
 	{
 		$this->setName('migrations:reset')
-			->setDescription("Remove all table and run new migrate");
+			->setDescription("Remove all table and run new migrate")
+			->addOption(
+				'force-scheme',
+				null,
+				InputOption::VALUE_NONE,
+				'It updates the schema even if the migration is not created. migrations:continue --force-scheme'
+			);
 	}
 
 	/**
@@ -60,8 +67,13 @@ class MigrationReset extends AbstractCommand
 		$greetInput = new ArrayInput($arguments);
 		$command->run($greetInput, $output);
 
+		$arguments = [];
+		if ($input->getOption('force-scheme')) {
+			$arguments["--force-scheme"] = TRUE;
+		}
+
 		$command = $application->find("migrations:continue");
-		$greetInput = new ArrayInput([]);
+		$greetInput = new ArrayInput($arguments);
 		$greetInput->setInteractive(FALSE);
 		$command->run($greetInput, $output);
 	}
