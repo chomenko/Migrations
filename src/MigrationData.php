@@ -149,6 +149,7 @@ class MigrationData implements SQLLogger
 		$ignore = [
 			'"START TRANSACTION"',
 			'"COMMIT"',
+			'"ROLLBACK"',
 		];
 
 		if (array_search($sql, $ignore) !== FALSE) {
